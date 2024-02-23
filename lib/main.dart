@@ -1,38 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/start_screen.dart';
 
 void main() {
-  runApp(const MaterialApp(home: MyApp()));
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override
-  Widget build(context) {
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 139, 93, 218),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset('assets/images/quiz-logo.png', width: 200),
-            const SizedBox(height: 20),
-            Text(
-              'Learn Flutter the fun way!',
-              style: TextStyle(
-                  color: Theme.of(context).colorScheme.onPrimary, fontSize: 30),
-            ),
-            const SizedBox(height: 20),
-            OutlinedButton(
-              style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.white,
-                side: const BorderSide(color: Colors.white),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        body: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color.fromARGB(255, 104, 0, 169),
+                  Color.fromARGB(255, 125, 61, 164),
+                  Color.fromARGB(255, 166, 137, 184),
+                ],
               ),
-              onPressed: () {},
-              child: const Text('Start Quiz'),
             ),
-          ],
-        ),
+            child: const StartScreen()),
       ),
-    );
-  }
+    ),
+  );
 }
